@@ -1,0 +1,31 @@
+# .github/workflows/snake.yml in YiyuZh/YiyuZh
+# Draws the contribution graph as a snake once a day and publishes the SVGs to
+# the "output" branch, which the profile README embeds.
+name: Generate snake
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg?color_snake=#2858d0&color_dots=#ebedf0,#c9d6f4,#8fabe9,#4f76d8,#2348a8
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#8fabe9
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
