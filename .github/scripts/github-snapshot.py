@@ -88,7 +88,7 @@ def main() -> None:
     page = (pathlib.Path(args.calendar_html).read_text(encoding='utf-8') if args.calendar_html
             else get(f'https://github.com/users/{login}/contributions').decode('utf-8'))
     repos = [repo for repo in json.loads(get(f'https://api.github.com/users/{login}/repos?per_page=100&type=owner'))
-             if not repo['fork'] and not repo['private']]
+             if not repo['fork'] and not repo['private'] and repo['name'].lower() != login.lower()]
     search = json.loads(get(f'https://api.github.com/search/issues?q=type:pr+author:{login}+-user:{login}&per_page=100'))
 
     upstream: dict[str, dict] = {}
