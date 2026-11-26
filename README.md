@@ -8,11 +8,11 @@
 
 <img src="https://img.shields.io/badge/ABOUT%20ME-2858d0?style=flat-square" alt="About me" />
 
-I develop AI applications and build them into whole products.
-HireMate began as one Streamlit page for screening résumés; it grew, a small shipped step at a time,
-into a hiring workbench with rule scoring, AI review and a human final say.
+I develop AI applications and build them into whole products.<br/>
+*The horizon keeps moving, so I keep building.*
 
-我做 AI 应用开发，能把一个想法做成完整的 AI 产品。HireMate 起初只是一个筛简历的页面，后来一步步上线、长成了完整的招聘工作台。
+我做 AI 应用开发，能把想法做成完整的 AI 产品。<br/>
+*地平线一直往前走，所以我一直在造。*
 
 [zenithy.art](https://zenithy.art) · [Blog](https://zenithy.art/blog/) · [Tools](https://zenithy.art/tools/)
 
