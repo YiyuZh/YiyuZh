@@ -1,18 +1,18 @@
 <div align="center">
 
-# Hi there, I'm Zenithy
+<a href="https://zenithy.art"><img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=30&duration=2600&pause=1000&color=2858D0&center=true&vCenter=true&width=640&height=56&lines=Zenithy+is+making+AI+products;Zenithy+is+making+HireMate;Zenithy+is+making+AI-Interview;Zenithy+is+making+zenithy.art" alt="Zenithy is making AI products" /></a>
 
-<img src="https://img.shields.io/badge/AI%20Application%20%26%20Full--stack%20Developer-111111?style=flat-square" alt="AI Application & Full-stack Developer" />
+<img src="https://img.shields.io/badge/AI%20Application%20Developer-111111?style=flat-square" alt="AI Application Developer" />
 
 <br/><br/>
 
 <img src="https://img.shields.io/badge/ABOUT%20ME-2858d0?style=flat-square" alt="About me" />
 
-I build AI products end to end: the model calls, the backend that keeps them honest, and the interface people actually use.
-Lately that means an AI hiring assistant, an interview coach, a personal portal with its own tools,
-and fixes for the memory layer that AI agents share.
+I develop AI applications and build them into whole products.
+HireMate began as one Streamlit page for screening résumés; it grew, a small shipped step at a time,
+into a hiring workbench with rule scoring, AI review and a human final say.
 
-我做从模型调用、后端到界面的完整 AI 产品，也给 Agent 记忆基础设施提 PR。
+我做 AI 应用开发，能把一个想法做成完整的 AI 产品。HireMate 起初只是一个筛简历的页面，后来一步步上线、长成了完整的招聘工作台。
 
 [zenithy.art](https://zenithy.art) · [Blog](https://zenithy.art/blog/) · [Tools](https://zenithy.art/tools/)
 
