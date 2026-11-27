@@ -56,12 +56,12 @@ Pull requests to the repositories AI agents run on.
   <tr>
     <td align="center">
       <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory/pulls?q=is%3Apr+author%3AYiyuZh"><b>TencentDB-Agent-Memory</b></a><br/><br/>
-      <img src="https://img.shields.io/github/stars/TencentCloud/TencentDB-Agent-Memory?style=flat-square&logo=github&label=stars&color=2858d0" alt="stars" /><br/>
+      <img src="https://raw.githubusercontent.com/YiyuZh/YiyuZh/data/badges/stars-tencentcloud-tencentdb-agent-memory.svg" alt="stars" /><br/>
       <sub>62 PRs · SDK, panel, wiki import, offload, storage</sub>
     </td>
     <td align="center">
       <a href="https://github.com/magpie-community/plugins/pulls?q=is%3Apr+author%3AYiyuZh"><b>magpie-community/plugins</b></a><br/><br/>
-      <img src="https://img.shields.io/github/stars/magpie-community/plugins?style=flat-square&logo=github&label=stars&color=2858d0" alt="stars" /><br/>
+      <img src="https://raw.githubusercontent.com/YiyuZh/YiyuZh/data/badges/stars-magpie-community-plugins.svg" alt="stars" /><br/>
       <sub>Provider plugin</sub>
     </td>
   </tr>
