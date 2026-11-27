@@ -15,6 +15,7 @@ on:
     branches: [main]
     paths:
       - ".github/scripts/github-snapshot.py"
+      - ".github/scripts/star-badges.py"
       - ".github/workflows/github-data.yml"
 
 permissions:
@@ -38,6 +39,11 @@ jobs:
           mkdir -p dist
           python3 .github/scripts/github-snapshot.py --login "${{ github.repository_owner }}" --out dist/github.json
           python3 -c "import json; d = json.load(open('dist/github.json')); assert len(d['calendar']['days']) >= 300, 'calendar too short'"
+
+      # The README's "stars" badges, pre-rendered so a slow shields.io never
+      # breaks the README. Keeps the last good copy if shields is down.
+      - name: Render star badges
+        run: python3 .github/scripts/star-badges.py --data dist/github.json --out dist/badges --owner "${{ github.repository_owner }}"
 
       - name: Publish to the data branch
         uses: crazy-max/ghaction-github-pages@v4
