@@ -89,18 +89,36 @@ def main() -> None:
             else get(f'https://github.com/users/{login}/contributions').decode('utf-8'))
     repos = [repo for repo in json.loads(get(f'https://api.github.com/users/{login}/repos?per_page=100&type=owner'))
              if not repo['fork'] and not repo['private'] and repo['name'].lower() != login.lower()]
-    search = json.loads(get(f'https://api.github.com/search/issues?q=type:pr+author:{login}+-user:{login}&per_page=100'))
+    query = f'https://api.github.com/search/issues?q=type:pr+author:{login}+-user:{login}&per_page=100'
+    search = json.loads(get(query))
+    items = list(search['items'])
+    page_number = 2
+    # The search API pages by 100 and stops at 1000 results.
+    while len(items) < min(search['total_count'], 1000) and page_number <= 10:
+        batch = json.loads(get(f'{query}&page={page_number}'))['items']
+        if not batch:
+            break
+        items += batch
+        page_number += 1
 
     upstream: dict[str, dict] = {}
-    for item in search['items']:
+    for item in items:
         name = item['repository_url'].split('/repos/', 1)[1]
-        entry = upstream.setdefault(name, {'repo': name, 'url': f'https://github.com/{name}', 'prs': 0, 'merged': 0, 'open': 0})
+        entry = upstream.setdefault(name, {'repo': name, 'url': f'https://github.com/{name}', 'prs': 0, 'merged': 0,
+                                           'open': 0, 'pulls': []})
         entry['prs'] += 1
         if (item.get('pull_request') or {}).get('merged_at'):
             entry['merged'] += 1
+            state = 'merged'
         elif item['state'] == 'open':
             entry['open'] += 1
+            state = 'open'
+        else:
+            state = 'closed'
+        # Each pull request, so the About page can list them by state.
+        entry['pulls'].append({'number': item['number'], 'title': item['title'], 'state': state, 'url': item['html_url']})
     for entry in upstream.values():
+        entry['pulls'].sort(key=lambda pull: -pull['number'])
         detail = json.loads(get(f'https://api.github.com/repos/{entry["repo"]}'))
         entry['stars'] = detail['stargazers_count']
         entry['description'] = detail.get('description') or ''
